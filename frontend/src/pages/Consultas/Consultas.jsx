@@ -34,6 +34,13 @@ function Consultas() {
             return;
         }
 
+        const dataHoraConsulta = new Date(`${dataConsulta}T${horarioConsulta}`);
+
+        if (dataHoraConsulta <= new Date()) {
+            alert('A consulta precisa ser agendada para uma data futura!');
+            return;
+        }
+
 
         const novaConsulta = {
             id: Date.now(),
@@ -56,6 +63,14 @@ function Consultas() {
 
 
     function salvarEdicao() {
+
+        const dataHoraConsulta = new Date(consultaEmEdicao.dataHora);
+
+        if (dataHoraConsulta <= new Date()) {
+            alert('A consulta precisa ser agendada para uma data futura!');
+            return;
+        }
+
         setConsultas(
             consultas.map((consulta) =>
                 consulta.id === consultaEmEdicao.id
