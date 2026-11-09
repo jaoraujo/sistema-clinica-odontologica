@@ -67,6 +67,16 @@ function Consultas() {
         setConsultaEmEdicao(null);
     }
 
+    function cancelarConsulta(id) {
+        setConsultas(
+            consultas.map((consulta) =>
+                consulta.id === id
+                    ? { ...consulta, status: 'cancelada' }
+                    : consulta
+            )
+        );
+    }
+
 
     const consultasFiltradas = consultas.filter((consulta) => {
         const correspondeStatus =
@@ -289,6 +299,13 @@ function Consultas() {
                                <button onClick={() => setConsultaEmEdicao(consulta)}>
                                    Editar
                                </button>
+
+                                <button
+                                    onClick={() => cancelarConsulta(consulta.id)}
+                                    disabled={consulta.status === 'cancelada'}
+                                >
+                                    Cancelar
+                                </button>
                             </td>
                         </tr>
                     ))}
