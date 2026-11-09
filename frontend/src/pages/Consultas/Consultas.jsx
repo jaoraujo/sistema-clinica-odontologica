@@ -13,6 +13,7 @@ function Consultas() {
     const [filtroData, setFiltroData] = useState('');
     const [paginaAtual, setPaginaAtual] = useState(1);
     const consultasPorPagina = 5;
+    const [consultaEmEdicao, setConsultaEmEdicao] = useState(null);
 
 
     const pacientes = [
@@ -35,6 +36,7 @@ function Consultas() {
 
 
         const novaConsulta = {
+            id: Date.now(),
             pacienteId: pacienteId,
             dataHora: `${dataConsulta}T${horarioConsulta}`,
             status: status,
@@ -50,6 +52,19 @@ function Consultas() {
 
         console.log(novaConsulta);
 
+    }
+
+
+    function salvarEdicao() {
+        setConsultas(
+            consultas.map((consulta) =>
+                consulta.id === consultaEmEdicao.id
+                    ? consultaEmEdicao
+                    : consulta
+            )
+        );
+
+        setConsultaEmEdicao(null);
     }
 
 
@@ -152,6 +167,80 @@ function Consultas() {
                 </div>
             )}
 
+            {consultaEmEdicao && (
+                <div>
+                    <h3>Editando consulta</h3>
+
+                    <label>Paciente:</label>
+                    <p>
+                        {pacientes.find(
+                            (paciente) => paciente._id === consultaEmEdicao.pacienteId
+                        )?.nome}
+                    </p>
+
+                    <label>Data:</label>
+                    <input
+                        type="date"
+                        value={consultaEmEdicao.dataHora.split('T')[0]}
+                        onChange={(e) =>
+                            setConsultaEmEdicao({
+                                ...consultaEmEdicao,
+                                dataHora: `${e.target.value}T${consultaEmEdicao.dataHora.split('T')[1]}`
+                            })
+                        }
+                    />
+
+                    <label>Horário:</label>
+                    <input
+                        type="time"
+                        value={consultaEmEdicao.dataHora.split('T')[1]}
+                        onChange={(e) =>
+                            setConsultaEmEdicao({
+                                ...consultaEmEdicao,
+                                dataHora: `${consultaEmEdicao.dataHora.split('T')[0]}T${e.target.value}`
+                            })
+                        }
+                    />
+
+                    <label>Status:</label>
+                    <select
+                        value={consultaEmEdicao.status}
+                        onChange={(e) =>
+                            setConsultaEmEdicao({
+                                ...consultaEmEdicao,
+                                status: e.target.value
+                            })
+                        }
+                    >
+                        <option value="agendada">Agendada</option>
+                        <option value="concluida">Concluída</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+
+                    <label>Observação:</label>
+                    <textarea
+                        value={consultaEmEdicao.observacao}
+                        onChange={(e) =>
+                            setConsultaEmEdicao({
+                                ...consultaEmEdicao,
+                                observacao: e.target.value
+                            })
+                        }
+                    />
+
+                    <button onClick={salvarEdicao}>
+                        Salvar alterações
+                    </button>
+
+                    <button onClick={() => setConsultaEmEdicao(null)}>
+                        Cancelar
+                    </button>
+                </div>
+            )}
+
+
+
+
             <h2>Consultas cadastradas</h2>
 
             <label htmlFor='filtroStatus'>Filtrar por status:</label>
@@ -182,12 +271,13 @@ function Consultas() {
                         <th>Data e horário</th>
                         <th>Status</th>
                         <th>Observação</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
                 <tbody> {/* aqui ainda mostra o id e não o nome do paciente */}
-                    {consultasPaginadas.map((consulta, index) => (
-                        <tr key={index}>
+                    {consultasPaginadas.map((consulta) => (
+                        <tr key={consulta.id}>
                             <td>{pacientes.find(
                                 (paciente) => paciente._id ===  consulta.pacienteId
                             ) ?.nome || 'Paciente não encontrado'}
@@ -195,6 +285,11 @@ function Consultas() {
                             <td>{consulta.dataHora}</td>
                             <td>{consulta.status}</td>
                             <td>{consulta.observacao}</td>
+                            <td>
+                               <button onClick={() => setConsultaEmEdicao(consulta)}>
+                                   Editar
+                               </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
