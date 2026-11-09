@@ -9,6 +9,8 @@ function Consultas() {
     const [consultas, setConsultas] = useState([])
     const [status, setStatus] = useState('agendada');
     const [observacao, setObservacao] = useState('');
+    const [filtroStatus, setFiltroStatus] = useState('todos');
+    const [filtroData, setFiltroData] = useState('');
 
 
     const pacientes = [
@@ -47,6 +49,19 @@ function Consultas() {
         console.log(novaConsulta);
 
     }
+
+
+    const consultasFiltradas = consultas.filter((consulta) => {
+        const correspondeStatus =
+            filtroStatus === 'todos' || consulta.status === filtroStatus;
+
+        const dataConsulta = consulta.dataHora.split('T')[0];
+
+        const correspondeData =
+            filtroData === '' || dataConsulta === filtroData;
+
+        return correspondeStatus && correspondeData;
+    });
 
     return (
         <>
@@ -124,6 +139,28 @@ function Consultas() {
             )}
 
             <h2>Consultas cadastradas</h2>
+
+            <label htmlFor='filtroStatus'>Filtrar por status:</label>
+            <select
+                id='filtroStatus'
+                value={filtroStatus}
+                onChange={(e) => setFiltroStatus(e.target.value)}
+            >
+                <option value='todos'>Todas</option>
+                <option value='agendada'>Agendadas</option>
+                <option value='concluida'>Concluídas</option>
+                <option value='cancelada'>Canceladas</option>
+            </select>
+
+
+            <label htmlFor='filtroData'>Filtrar por data:</label>
+            <input
+                id='filtroData'
+                type='date'
+                value={filtroData}
+                onChange={(e) => setFiltroData(e.target.value)}
+            />
+
             <table>
                 <thead>
                     <tr>
@@ -135,7 +172,7 @@ function Consultas() {
                 </thead>
 
                 <tbody> {/* aqui ainda mostra o id e não o nome do paciente */}
-                    {consultas.map((consulta, index) => (
+                    {consultasFiltradas.map((consulta, index) => (
                         <tr key={index}>
                             <td>{pacientes.find(
                                 (paciente) => paciente._id ===  consulta.pacienteId
