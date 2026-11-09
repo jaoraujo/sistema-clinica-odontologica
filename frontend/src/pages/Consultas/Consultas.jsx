@@ -41,6 +41,26 @@ function Consultas() {
             return;
         }
 
+        const novaDataHora = new Date(`${dataConsulta}T${horarioConsulta}`);
+
+        const horarioOcupado = consultas.some((consulta) => {
+            if (consulta.status === 'cancelada') {
+                return false;
+            }
+
+            const dataExistente = new Date(consulta.dataHora);
+
+            const diferencaMinutos =
+                Math.abs(novaDataHora - dataExistente) / (1000 * 60);
+
+            return diferencaMinutos < 30;
+        });
+
+        if (horarioOcupado) {
+            alert('Já existe uma consulta nesse intervalo de horário!');
+            return;
+        }
+
 
         const novaConsulta = {
             id: Date.now(),
@@ -68,6 +88,28 @@ function Consultas() {
 
         if (dataHoraConsulta <= new Date()) {
             alert('A consulta precisa ser agendada para uma data futura!');
+            return;
+        }
+
+        const horarioOcupado = consultas.some((consulta) => {
+            if (
+                consulta.id === consultaEmEdicao.id ||
+                consulta.status === 'cancelada'
+            ) {
+                return false;
+            }
+
+            const dataExistente = new Date(consulta.dataHora);
+            const dataEditada = new Date(consultaEmEdicao.dataHora);
+
+            const diferencaMinutos =
+                Math.abs(dataEditada - dataExistente) / (1000 * 60);
+
+            return diferencaMinutos < 30;
+        });
+
+        if (horarioOcupado) {
+            alert('Já existe uma consulta nesse intervalo de horário!');
             return;
         }
 
