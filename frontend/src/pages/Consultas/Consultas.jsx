@@ -11,6 +11,8 @@ function Consultas() {
     const [observacao, setObservacao] = useState('');
     const [filtroStatus, setFiltroStatus] = useState('todos');
     const [filtroData, setFiltroData] = useState('');
+    const [paginaAtual, setPaginaAtual] = useState(1);
+    const consultasPorPagina = 5;
 
 
     const pacientes = [
@@ -62,6 +64,18 @@ function Consultas() {
 
         return correspondeStatus && correspondeData;
     });
+
+
+    const indiceInicial = (paginaAtual - 1) * consultasPorPagina;
+
+    const consultasPaginadas = consultasFiltradas.slice(
+        indiceInicial,
+        indiceInicial + consultasPorPagina
+    );
+
+    const totalPaginas = Math.ceil(
+        consultasFiltradas.length / consultasPorPagina
+    );
 
     return (
         <>
@@ -172,7 +186,7 @@ function Consultas() {
                 </thead>
 
                 <tbody> {/* aqui ainda mostra o id e não o nome do paciente */}
-                    {consultasFiltradas.map((consulta, index) => (
+                    {consultasPaginadas.map((consulta, index) => (
                         <tr key={index}>
                             <td>{pacientes.find(
                                 (paciente) => paciente._id ===  consulta.pacienteId
@@ -185,6 +199,26 @@ function Consultas() {
                     ))}
                 </tbody>
             </table>
+
+            <div>
+                <button
+                    onClick={() => setPaginaAtual(paginaAtual - 1)}
+                    disabled={paginaAtual === 1}
+                >
+                    Anterior
+                </button>
+
+                <span>
+                    Página {paginaAtual} de {totalPaginas}
+                </span>
+
+                <button
+                    onClick={() => setPaginaAtual(paginaAtual + 1)}
+                    disabled={paginaAtual === totalPaginas}
+                >
+                    Próxima
+                </button>
+            </div>
 
         </>
     );
