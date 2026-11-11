@@ -1,1 +1,212 @@
-.users-page{max-width:1120px!important}.users-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}.users-heading h1{margin:0 0 8px}.users-heading p:last-child{margin:0;color:#647791}.users-add{background:#315e9e;color:#fff;padding:12px 18px;border-radius:9px;text-decoration:none;font-weight:700;white-space:nowrap}.users-summary{background:#e7effa;border:1px solid #d5e2f2;border-radius:13px;padding:17px 22px;display:flex;gap:14px;align-items:center;margin-bottom:26px}.users-summary-icon{background:#d4e4f7;color:#315e9e;border-radius:10px;padding:10px 16px;font-size:1.5rem}.users-summary strong{font-size:1rem}.users-summary p{color:#657993;font-size:.85rem;margin:4px 0 0}.users-filters{display:grid;grid-template-columns:1fr 230px;gap:12px;margin-bottom:14px}.users-filters label{display:grid;gap:8px;font-weight:700;font-size:.86rem}.users-filters input,.users-filters select{border:1px solid #bdcfe5;border-radius:8px;padding:11px 13px;min-height:45px;font:inherit;background:white;color:#183052}.users-table-wrap{overflow:auto;border:1px solid #dbe3ee;border-radius:13px;background:#fff}.users-table-wrap table{width:100%;border-collapse:collapse;text-align:left}.users-table-wrap th{background:#edf3fa;color:#183052;font-size:.75rem;letter-spacing:.06em;padding:16px}.users-table-wrap td{border-top:1px solid #e0e8f1;padding:15px 16px;font-size:.9rem}.users-person{display:flex;gap:12px;align-items:center}.users-person>span:last-child{display:grid;gap:4px}.users-person small{color:#71839b}.users-avatar{display:grid;place-items:center;background:#e7effa;color:#315e9e;width:38px;height:38px;border-radius:50%;font-weight:800}.users-active{background:#e6f6ed;color:#277449;border-radius:100px;padding:5px 10px;font-size:.8rem;font-weight:700}.users-remove{border:1px solid #f0d4d4;background:white;color:#ad4141;padding:7px 10px;border-radius:7px;cursor:pointer}.users-remove:hover{background:#fff1f1}.users-empty{text-align:center;color:#75859b;padding:35px!important}.users-pagination{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#657993;font-size:.86rem;margin-top:16px}.users-pagination>div{display:flex;align-items:center;gap:10px}.users-pagination button{background:white;border:1px solid #dbe3ee;border-radius:7px;padding:8px 10px;color:#183052;cursor:pointer}.users-pagination button:disabled{opacity:.45;cursor:not-allowed}@media(max-width:650px){.users-heading,.users-pagination{align-items:flex-start;flex-direction:column}.users-filters{grid-template-columns:1fr}.users-table-wrap table{min-width:610px}}
+.users-page {
+    max-width: 1120px !important
+}
+
+.users-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px
+}
+
+.users-heading h1 {
+    margin: 0 0 8px
+}
+
+.users-heading p:last-child {
+    margin: 0;
+    color: #647791
+}
+
+.users-add {
+    background: #315e9e;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap
+}
+
+.users-summary {
+    background: #e7effa;
+    border: 1px solid #d5e2f2;
+    border-radius: 13px;
+    padding: 17px 22px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 26px
+}
+
+.users-summary-icon {
+    background: #d4e4f7;
+    color: #315e9e;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 1.5rem
+}
+
+.users-summary strong {
+    font-size: 1rem
+}
+
+.users-summary p {
+    color: #657993;
+    font-size: .85rem;
+    margin: 4px 0 0
+}
+
+.users-filters {
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    gap: 12px;
+    margin-bottom: 14px
+}
+
+.users-filters label {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+    font-size: .86rem
+}
+
+.users-filters input,
+.users-filters select {
+    border: 1px solid #bdcfe5;
+    border-radius: 8px;
+    padding: 11px 13px;
+    min-height: 45px;
+    font: inherit;
+    background: white;
+    color: #183052
+}
+
+.users-table-wrap {
+    overflow: auto;
+    border: 1px solid #dbe3ee;
+    border-radius: 13px;
+    background: #fff
+}
+
+.users-table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left
+}
+
+.users-table-wrap th {
+    background: #edf3fa;
+    color: #183052;
+    font-size: .75rem;
+    letter-spacing: .06em;
+    padding: 16px
+}
+
+.users-table-wrap td {
+    border-top: 1px solid #e0e8f1;
+    padding: 15px 16px;
+    font-size: .9rem
+}
+
+.users-person {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.users-person>span:last-child {
+    display: grid;
+    gap: 4px
+}
+
+.users-person small {
+    color: #71839b
+}
+
+.users-avatar {
+    display: grid;
+    place-items: center;
+    background: #e7effa;
+    color: #315e9e;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-weight: 800
+}
+
+.users-active {
+    background: #e6f6ed;
+    color: #277449;
+    border-radius: 100px;
+    padding: 5px 10px;
+    font-size: .8rem;
+    font-weight: 700
+}
+
+.users-remove {
+    border: 1px solid #f0d4d4;
+    background: white;
+    color: #ad4141;
+    padding: 7px 10px;
+    border-radius: 7px;
+    cursor: pointer
+}
+
+.users-remove:hover {
+    background: #fff1f1
+}
+
+.users-empty {
+    text-align: center;
+    color: #75859b;
+    padding: 35px !important
+}
+
+.users-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: #657993;
+    font-size: .86rem;
+    margin-top: 16px
+}
+
+.users-pagination>div {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.users-pagination button {
+    background: white;
+    border: 1px solid #dbe3ee;
+    border-radius: 7px;
+    padding: 8px 10px;
+    color: #183052;
+    cursor: pointer
+}
+
+.users-pagination button:disabled {
+    opacity: .45;
+    cursor: not-allowed
+}
+
+@media(max-width:650px) {
+
+    .users-heading,
+    .users-pagination {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .users-filters {
+        grid-template-columns: 1fr
+    }
+
+    .users-table-wrap table {
+        min-width: 610px
+    }
+}
