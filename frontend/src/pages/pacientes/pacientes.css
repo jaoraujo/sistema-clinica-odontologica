@@ -1,0 +1,111 @@
+.pacientes-subtitle {
+    margin: 8px 0 0;
+    color: var(--lume-muted);
+    line-height: 1.6;
+}
+
+/* Busca e filtros */
+.pacientes-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.pacientes-field {
+    display: grid;
+    gap: 6px;
+}
+.pacientes-field label {
+    font-size: 0.9375rem;
+    font-weight: 700;
+}
+.pacientes-search {
+    flex: 1 1 260px;
+}
+.pacientes-clear {
+    min-height: 44px;
+}
+
+/* Tabela */
+.pacientes-table-wrap {
+    min-height: 320px;
+    max-height: calc(100dvh - 400px);
+    overflow: auto;
+    border: 1px solid var(--lume-line);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.pacientes-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1rem;
+}
+.pacientes-table th,
+.pacientes-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--lume-line);
+    text-align: left;
+}
+.pacientes-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #eef3fa;
+    color: var(--lume-navy);
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.pacientes-table tbody tr:hover {
+    background: #f7f9fc;
+}
+.pacientes-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+.pacientes-col-acoes {
+    width: 1%;
+    white-space: nowrap;
+    text-align: right !important;
+}
+.pacientes-vazio {
+    padding: 40px 16px !important;
+    color: var(--lume-muted);
+    text-align: center !important;
+}
+
+/* Notificação de sucesso (canto inferior direito) */
+.lume-toast-area {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+}
+.lume-toast {
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #1f6b45;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(24, 48, 82, 0.25);
+}
+
+@media (max-width: 720px) {
+    .lume-toast-area {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+    }
+    .pacientes-toolbar {
+        align-items: stretch;
+    }
+    .pacientes-field {
+        flex: 1 1 100%;
+    }
+    .pacientes-heading-btn {
+        width: 100%;
+    }
+}
