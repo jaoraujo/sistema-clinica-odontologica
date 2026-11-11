@@ -4,6 +4,7 @@ import FormularioEdicao from "../../components/consultas/FormularioEdicao.jsx";
 import FiltrosConsultas from "../../components/consultas/FiltrosConsultas.jsx";
 import TabelaConsultas from "../../components/consultas/TabelaConsultas.jsx";
 import Paginacao from "../../components/consultas/Paginacao.jsx";
+import './consultas.css';
 
 
 function Consultas() {
@@ -168,12 +169,24 @@ function Consultas() {
     return (
         <>
 
-            <h1>Minhas Consultas</h1>
-            <h2>Gerencie os agendamentos dos pacientes</h2>
+            <section className="consultas-page">
+                <div className="lume-page-heading">
+                    <div>
+                        <h1 id="page-title">Minhas Consultas</h1>
+                        <p className="consultas-subtitle">
+                            Gerencie os agendamentos dos pacientes.
+                        </p>
+                    </div>
 
-            <button onClick={() => setFormularioAberto(!formularioAberto)}>
-                {formularioAberto ? 'Fechar formulário' : 'Nova consulta'}
-            </button>
+                    <button
+                        type="button"
+                        className="lume-btn lume-btn--primary"
+                        onClick={() => setFormularioAberto(!formularioAberto)}
+                    >
+                        {formularioAberto ? 'Fechar formulário' : 'Nova consulta'}
+                    </button>
+                </div>
+
 
             {formularioAberto && (
                 <FormularioConsulta
@@ -223,7 +236,8 @@ function Consultas() {
                 setPaginaAtual={setPaginaAtual}
                 totalPaginas={totalPaginas}
             />
-
+                
+            </section>
         </>
     );
 }
