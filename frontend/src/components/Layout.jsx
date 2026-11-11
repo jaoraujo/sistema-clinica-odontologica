@@ -41,10 +41,6 @@ export default function Layout({ user, isAdmin = false, onLogout, demo = false }
       <main id="lume-content" className="lume-content" tabIndex={-1}>
         <Outlet />
       </main>
-      <footer className="lume-footer">
-        <strong>Lume Odontologia</strong>
-        <span>Gestão da clínica odontológica</span>
-      </footer>
     </div>
   )
 }
