@@ -8,6 +8,14 @@ A aplicação será desenvolvida com **React**, utilizando **Vite** como ferrame
 
 Este diretório contém exclusivamente o frontend do projeto.
 
+## 📌 Objetivo e Público-Alvo
+
+O sistema tem como objetivo facilitar o gerenciamento de uma clínica odontológica, reunindo informações de pacientes, consultas e usuários em um só lugar.
+
+A aplicação é voltada para recepcionistas, dentistas e administradores de clínicas odontológicas, permitindo organizar agendamentos, consultar dados dos pacientes e acompanhar as atividades da clínica.
+
+O projeto busca diminuir a necessidade de controles manuais e facilitar o acesso às informações no dia a dia.
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **React** — Desenvolvimento das interfaces e componentes.
