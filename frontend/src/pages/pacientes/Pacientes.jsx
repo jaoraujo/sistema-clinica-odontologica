@@ -3,7 +3,7 @@ import Confirmacao from '../../components/pacientes/Confirmacao'
 import FormPaciente from '../../components/pacientes/FormPaciente'
 import Paginacao from '../../components/pacientes/Paginacao'
 import { calcularIdade, formatarData, normalizar } from '../../utils/formatters'
-import './preview.css'
+import '../preview.css'
 import './pacientes.css'
 
 // Dados fictícios

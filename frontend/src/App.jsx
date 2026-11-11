@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import { PreviewDashboard, PreviewLogin, PreviewPage } from './pages/PreviewPages'
-import Pacientes from './pages/Pacientes'
+import Pacientes from './pages/pacientes/Pacientes'
 
 // A demonstração usa um perfil administrativo para exibir todas as rotas.
 const demoIsAdmin = true
