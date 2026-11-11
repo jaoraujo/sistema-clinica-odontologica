@@ -25,10 +25,10 @@ O frontend foi dividido entre quatro integrantes.
 
 | Integrante | E-mail | Responsabilidade |
 |---|---|---|
-| Thallyta [sobrenome] | [e-mail] | Layout e navegação |
-| João Araújo | [e-mail] | Login, cadastro, dashboard e usuários |
-| Débora [sobrenome] | [e-mail] | Gerenciamento de pacientes |
-| Emmeline [sobrenome] | [e-mail] | Gerenciamento de consultas |
+| Thallyta | thallyta.freire@maisunifacisa.com.br | Layout e navegação |
+| João Araújo | joao.vicctor@maisunifacisa.com.br | Login, cadastro, dashboard e usuários |
+| Débora | debora.goncalo@maisunifacisa.com.br | Gerenciamento de pacientes |
+| Emmeline | alexandra.roma@maisunifacisa.com.br | Gerenciamento de consultas |
 
 ### Layout e Navegação — Thallyta
 
