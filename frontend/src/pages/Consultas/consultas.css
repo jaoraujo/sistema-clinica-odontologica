@@ -1,0 +1,116 @@
+.consultas-subtitle {
+    margin: 8px 0 0;
+    color: var(--lume-muted);
+    line-height: 1.6;
+}
+
+.consultas-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.consultas-field {
+    display: grid;
+    gap: 6px;
+}
+
+.consultas-field label {
+    font-size: 0.9375rem;
+    font-weight: 700;
+}
+
+/* Tabela de consultas */
+.consultas-table-wrap {
+    min-height: 320px;
+    max-height: calc(100dvh - 400px);
+    overflow: auto;
+    border: 1px solid var(--lume-line);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.consultas-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1rem;
+}
+
+.consultas-table th,
+.consultas-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--lume-line);
+    text-align: left;
+}
+
+.consultas-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #eef3fa;
+    color: var(--lume-navy);
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.consultas-table tbody tr:hover {
+    background: #f7f9fc;
+}
+
+.consultas-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.consultas-col-acoes {
+    white-space: nowrap;
+    text-align: right !important;
+}
+
+/* Formulário de consultas */
+.consultas-form {
+    display: grid;
+    gap: 14px;
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 1px solid var(--lume-line);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.consultas-form h3 {
+    margin: 0;
+    color: var(--lume-navy);
+}
+
+.consultas-field textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Paginação */
+.consultas-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+@media (max-width: 720px) {
+    .consultas-toolbar {
+        align-items: stretch;
+    }
+
+    .consultas-field {
+        flex: 1 1 100%;
+    }
+
+    .consultas-pagination {
+        flex-wrap: wrap;
+    }
+}

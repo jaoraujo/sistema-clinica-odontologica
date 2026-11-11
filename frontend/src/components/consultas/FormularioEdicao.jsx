@@ -1,3 +1,4 @@
+
 function FormularioEdicao({
                               consultaEmEdicao,
                               setConsultaEmEdicao,
@@ -7,71 +8,95 @@ function FormularioEdicao({
     return (
         <>
             {consultaEmEdicao && (
-                <div>
+                <div className="consultas-form">
                     <h3>Editando consulta</h3>
 
-                    <label>Paciente:</label>
-                    <p>
-                        {pacientes.find(
-                            (paciente) => paciente._id === consultaEmEdicao.pacienteId
-                        )?.nome}
-                    </p>
+                    <div className="consultas-field">
+                        <label>Paciente:</label>
+                        <p>
+                            {pacientes.find(
+                                (paciente) => paciente._id === consultaEmEdicao.pacienteId
+                            )?.nome}
+                        </p>
+                    </div>
 
-                    <label>Data:</label>
-                    <input
-                        type="date"
-                        value={consultaEmEdicao.dataHora.split('T')[0]}
-                        onChange={(e) =>
-                            setConsultaEmEdicao({
-                                ...consultaEmEdicao,
-                                dataHora: `${e.target.value}T${consultaEmEdicao.dataHora.split('T')[1]}`
-                            })
-                        }
-                    />
+                    <div className="consultas-field">
+                        <label htmlFor="dataEdicao">Data:</label>
+                        <input
+                            id="dataEdicao"
+                            className="lume-input"
+                            type="date"
+                            value={consultaEmEdicao.dataHora.split("T")[0]}
+                            onChange={(e) =>
+                                setConsultaEmEdicao({
+                                    ...consultaEmEdicao,
+                                    dataHora: `${e.target.value}T${consultaEmEdicao.dataHora.split("T")[1]}`
+                                })
+                            }
+                        />
+                    </div>
 
-                    <label>Horário:</label>
-                    <input
-                        type="time"
-                        value={consultaEmEdicao.dataHora.split('T')[1]}
-                        onChange={(e) =>
-                            setConsultaEmEdicao({
-                                ...consultaEmEdicao,
-                                dataHora: `${consultaEmEdicao.dataHora.split('T')[0]}T${e.target.value}`
-                            })
-                        }
-                    />
+                    <div className="consultas-field">
+                        <label htmlFor="horarioEdicao">Horário:</label>
+                        <input
+                            id="horarioEdicao"
+                            className="lume-input"
+                            type="time"
+                            value={consultaEmEdicao.dataHora.split("T")[1]}
+                            onChange={(e) =>
+                                setConsultaEmEdicao({
+                                    ...consultaEmEdicao,
+                                    dataHora: `${consultaEmEdicao.dataHora.split("T")[0]}T${e.target.value}`
+                                })
+                            }
+                        />
+                    </div>
 
-                    <label>Status:</label>
-                    <select
-                        value={consultaEmEdicao.status}
-                        onChange={(e) =>
-                            setConsultaEmEdicao({
-                                ...consultaEmEdicao,
-                                status: e.target.value
-                            })
-                        }
+                    <div className="consultas-field">
+                        <label htmlFor="statusEdicao">Status:</label>
+                        <select
+                            id="statusEdicao"
+                            className="lume-input"
+                            value={consultaEmEdicao.status}
+                            onChange={(e) =>
+                                setConsultaEmEdicao({
+                                    ...consultaEmEdicao,
+                                    status: e.target.value
+                                })
+                            }
+                        >
+                            <option value="agendada">Agendada</option>
+                            <option value="concluida">Concluída</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+
+                    <div className="consultas-field">
+                        <label htmlFor="observacaoEdicao">Observação:</label>
+                        <textarea
+                            id="observacaoEdicao"
+                            className="lume-input"
+                            value={consultaEmEdicao.observacao}
+                            onChange={(e) =>
+                                setConsultaEmEdicao({
+                                    ...consultaEmEdicao,
+                                    observacao: e.target.value
+                                })
+                            }
+                        />
+                    </div>
+
+                    <button
+                        className="lume-btn lume-btn--primary"
+                        onClick={salvarEdicao}
                     >
-                        <option value="agendada">Agendada</option>
-                        <option value="concluida">Concluída</option>
-                        <option value="cancelada">Cancelada</option>
-                    </select>
-
-                    <label>Observação:</label>
-                    <textarea
-                        value={consultaEmEdicao.observacao}
-                        onChange={(e) =>
-                            setConsultaEmEdicao({
-                                ...consultaEmEdicao,
-                                observacao: e.target.value
-                            })
-                        }
-                    />
-
-                    <button onClick={salvarEdicao}>
                         Salvar alterações
                     </button>
 
-                    <button onClick={() => setConsultaEmEdicao(null)}>
+                    <button
+                        className="lume-btn"
+                        onClick={() => setConsultaEmEdicao(null)}
+                    >
                         Cancelar
                     </button>
                 </div>
