@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import { PreviewDashboard, PreviewLogin, PreviewPage } from './pages/PreviewPages'
 import Pacientes from './pages/pacientes/Pacientes'
+import Consultas from "./pages/Consultas/Consultas.jsx";
 
 // A demonstração usa um perfil administrativo para exibir todas as rotas.
 const demoIsAdmin = true
@@ -16,12 +17,8 @@ export default function App() {
         
         <Route path="pacientes" element={<Pacientes />} />
 
-        <Route path="consultas" element={<PreviewPage title="Consultas" section="Agenda"
-          action={{ label: 'Nova consulta', to: '/consultas/nova' }} />} />
-        <Route path="consultas/nova" element={<PreviewPage title="Nova consulta" section="Consultas"
-          backTo="/consultas" backLabel="Voltar a consultas" />} />
-        <Route path="consultas/:id/editar" element={<PreviewPage title="Editar consulta" section="Consultas"
-          backTo="/consultas" backLabel="Voltar a consultas" />} />
+        <Route path="consultas" element={<Consultas />} />
+        
         {demoIsAdmin && <Route path="usuarios" element={<PreviewPage title="Usuários" section="Administração" />} />}
         <Route path="*" element={
           <section aria-labelledby="page-title">
